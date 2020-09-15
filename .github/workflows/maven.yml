@@ -21,4 +21,4 @@ jobs:
     - name: API installation
       run: mvn -B package install --file api/pom.xml
     - name: TESSERACT package
-      run: mvn -B install --file tesseract/pom.xml
+      run: mvn -B package --file tesseract/pom.xml
