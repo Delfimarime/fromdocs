@@ -31,6 +31,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/Delfimarime/fromdocs</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
 
         <dependency>
@@ -44,7 +52,7 @@
         <dependency>
             <groupId>net.sourceforge.tess4j</groupId>
             <artifactId>tess4j</artifactId>
-            <version>4.5.1</version>
+            <version>4.5.3</version>
             <scope>provided</scope>
         </dependency>
 

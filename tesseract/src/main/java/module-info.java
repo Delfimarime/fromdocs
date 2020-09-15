@@ -1,5 +1,9 @@
 module com.raitonbl.fromdocs.tesseract {
 
+    requires tess4j;
+
+    requires java.desktop;
+
     requires com.raitonbl.fromdocs;
 
     requires org.apache.commons.lang3;
