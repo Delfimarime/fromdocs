@@ -4,7 +4,6 @@ import com.raitonbl.fromdocs.Document;
 import com.raitonbl.fromdocs.DocumentService;
 import com.raitonbl.fromdocs.DocumentServiceChain;
 import com.raitonbl.fromdocs.docs.Passport;
-import org.apache.commons.lang3.NotImplementedException;
 
 public class PassportService implements DocumentService {
 
@@ -19,7 +18,7 @@ public class PassportService implements DocumentService {
             return chain.map(src, returnType);
         }
 
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
 
