@@ -55,10 +55,10 @@ public class NuitService implements DocumentService {
 
         String fullName = null;
 
-        for (int i = 0; i < content.length; i++) {
-            int result = content[i].indexOf("Nome:");
+        for (String s : content) {
+            int result = s.indexOf("Nome:");
             if (result != -1) {
-                fullName = content[i];
+                fullName = s;
                 break;
             }
         }
