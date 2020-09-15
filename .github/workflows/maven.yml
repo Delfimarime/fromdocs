@@ -12,9 +12,9 @@ jobs:
       with:
         java-version: 11
     - name: API installation
-      run: mvn -B package install --file api/pom.xml
+      run: mvn -B deploy --file api/pom.xml
     - name: TESSERACT package
-      run: mvn -B package --file tesseract/pom.xml
+      run: mvn -B deploy --file tesseract/pom.xml
       
       
            
