@@ -5,7 +5,7 @@ import com.raitonbl.fromdocs.Provider;
 import net.sourceforge.tess4j.Tesseract;
 
 import javax.imageio.ImageIO;
-import java.io.BufferedInputStream;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ import java.nio.file.Path;
 
 public class ProviderImpl implements Provider {
 
-    private Tesseract runtime;
+    private final Tesseract runtime;
 
     public ProviderImpl() {
         this.runtime = new Tesseract();
@@ -24,11 +24,14 @@ public class ProviderImpl implements Provider {
     }
 
     @Override
-    public String from(File file) {
+    public String from(File image) {
         try {
-            return from(new FileInputStream(file));
-        } catch (FromDocsException ex) {
-            throw ex;
+
+            if (image == null) {
+                return null;
+            }
+
+            return runtime.doOCR(image);
         } catch (Exception ex) {
             throw new FromDocsException(ex);
         }
@@ -41,15 +44,23 @@ public class ProviderImpl implements Provider {
 
     @Override
     public String from(InputStream inputStream) {
-        return from(new BufferedInputStream(inputStream));
+        try {
+            return from(ImageIO.read(inputStream));
+        } catch (FromDocsException ex) {
+            throw ex;
+        } catch (Exception ex) {
+            throw new FromDocsException(ex);
+        }
     }
 
-    public String from(BufferedInputStream inputStream) {
+    public String from(BufferedImage image) {
         try {
-            if (inputStream == null) {
+
+            if (image == null) {
                 return null;
             }
-            return runtime.doOCR(ImageIO.read(inputStream));
+
+            return runtime.doOCR(image);
         } catch (Exception ex) {
             throw new FromDocsException(ex);
         }

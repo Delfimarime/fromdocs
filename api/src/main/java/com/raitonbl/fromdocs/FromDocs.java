@@ -40,11 +40,11 @@ public final class FromDocs {
     }
 
     public <Y extends Document> Y from(File file, Class<Y> returnType) {
-        return from(provider.from(file),returnType);
+        return from(provider.from(file), returnType);
     }
 
     public <Y extends Document> Y from(Path path, Class<Y> returnType) {
-        return from(provider.from(path),returnType);
+        return from(provider.from(path), returnType);
     }
 
     public <Y extends Document> Y from(String src, Class<Y> returnType) {
@@ -57,11 +57,11 @@ public final class FromDocs {
     }
 
     public <Y extends Document> Y from(InputStream inputStream, Class<Y> returnType) {
-        return from(provider.from(inputStream),returnType);
+        return from(provider.from(inputStream), returnType);
     }
 
     public <Y extends Document> Y from(FileInputStream inputStream, Class<Y> returnType) {
-        return from(provider.from(inputStream),returnType);
+        return from(provider.from(inputStream), returnType);
     }
 
     public FromDocs addMapper(DocumentService mapper) {
